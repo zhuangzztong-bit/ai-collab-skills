@@ -1,0 +1,49 @@
+{
+ "schema": "conflict-register/1",
+ "project": "项目名称",
+ "updated": "2026-01-01",
+ "note": "冲突登记表模板（schema conflict-register/1）。复制一份放进项目（比如 conflict-register.json），把下面的例子换成本项目的内容；例子是随手编的一个说明书翻译项目，不是任何真实项目的内容。note 字段在哪个对象里都可以写，程序不读；别的不认识的键，check 在 warnings 里提醒。sources 记每份规则文件：id、title、version、date、status（in_force 现行、superseded 被取代、pending 委托人还没定），可以加 label（给人看的简称）；被取代的写 superseded_by（被哪一份取代）；file 是相对登记表所在目录的路径，现行的本地文件必须写，被取代的、待定的有存档就写，写了就核；原文照录的本地文件都要加 sha256 钉住版本（文件里有一行“<!-- 原文开始 -->”或英文写法“<!-- original text begins -->”时，只算第一处这样的行之后的原文，check 输出的 sources.digests 给出现在的摘要，核过原文再照抄；没加的，check 在 warnings 里提醒）；外部依据写 \"external\": true，不核文件，只认 JSON 的 true。texts 记已采纳的成果：成果 id 对相对 --texts-root 的路径。items 每条一个冲突：kind 是 conflict（两条规则打架）、mismatch（描述和成果对不上）、collision（新叫法撞上成果里的已有用法）、stale（同一份文件前后不一致）或 exception（登记过一次的例外）；sides 列两边，规则一边写 source、where（哪一节哪一条）、quote（原句，逐字照抄），可以加 strength（must 必须、should 建议，写了就核，只能是这两个值；“建议”“尽量”“一般”这类算 should），成果一边写 text、line（行号，从 1 数起）、quote（那一行里的原话）；exception 至少 1 项，别的至少 2 项。status 是 open（写 ask：委托人要定什么；meanwhile：定下之前怎么办）、decided（写 resolution 和 decided_by：who 是 principal 时写 when、words（委托人或他授权的人的原话）、source（原话的出处）；who 是 ai 时写 when 和 rule_applied，即按裁决顺序第 1 至 4 步的哪一步，第 5 步只能由委托人定）或 closed（写 resolution：为什么关掉）。proposal（AI 的建议）、since（从哪天起待定）可写可不写。",
+ "sources": [
+  {"id": "style-v2", "label": "体例第二版", "title": "委托人的翻译体例（第二版）", "file": "rules/style.md", "version": "第二版", "date": "2026-01-01", "status": "in_force",
+   "note": "原文照录在 file 里；照录以后加上 \"sha256\": \"…\"，值从 check 输出的 sources.digests 照抄"},
+  {"id": "style-v1", "title": "委托人的翻译体例（第一版）", "file": null, "version": "第一版", "date": "2025-12-01", "status": "superseded", "superseded_by": "style-v2",
+   "note": "旧版存档在别处，这里只记它被谁取代；有存档文件时把 file 填上"},
+  {"id": "glossary", "label": "术语表", "title": "术语表", "file": "rules/glossary.md", "version": "2026-01-01", "date": "2026-01-01", "status": "in_force"},
+  {"id": "glossary-draft", "title": "术语表修订草案", "file": null, "version": "草案", "date": "2026-01-05", "status": "pending",
+   "note": "委托人还没定，不据它改成果"},
+  {"id": "standard", "title": "行业标准（外部依据，这里不留副本）", "file": null, "version": "2020", "date": "2020-06-01", "status": "in_force", "external": true}
+ ],
+ "texts": {
+  "manual-intro": "texts/manual-intro.md"
+ },
+ "items": [
+  {
+   "id": "RC-01", "kind": "collision", "title": "术语表给 Board 定的译名，已采纳的译文里指着 Panel",
+   "sides": [
+    {"source": "glossary", "where": "第 3 行", "quote": "Board 译作“面板”"},
+    {"text": "manual-intro", "line": 8, "quote": "在设置面板里打开同步"}
+   ],
+   "proposal": "要么“面板”只管 Board、Panel 另起译名，要么 Board 另起译名；已采纳的译文和术语表原文都不动。",
+   "status": "open", "ask": "“面板”留给 Board，还是 Panel 照旧用“面板”、Board 另起译名？",
+   "meanwhile": "已采纳的译文不动；新译的部分 Board 先保留英文原词，不用“面板”。", "since": "2026-01-01"
+  },
+  {
+   "id": "RC-02", "kind": "mismatch", "title": "体例说引号已经全部换过，已采纳的译文里还有英文引号",
+   "sides": [
+    {"source": "style-v2", "where": "第三节", "quote": "第一部分的英文引号已经全部换成中文引号"},
+    {"text": "manual-intro", "line": 5, "quote": "点 \"Sync\" 开始同步"}
+   ],
+   "status": "decided", "resolution": "“已经全部换成”是描述，和已采纳的译文对不上，不当规则用；这一行照已采纳的样子留着，差异已列给委托人。",
+   "decided_by": {"who": "ai", "when": "2026-01-01", "rule_applied": 2}
+  },
+  {
+   "id": "RC-03", "kind": "exception", "title": "界面上的 OK 照原样留英文",
+   "sides": [
+    {"source": "style-v2", "where": "第二节", "quote": "界面上的按钮名一律译成中文", "strength": "must"},
+    {"text": "manual-intro", "line": 12, "quote": "点 OK 确认"}
+   ],
+   "status": "decided", "resolution": "这一处是登记过的例外，以后不再报。",
+   "decided_by": {"who": "principal", "when": "2026-01-02", "words": "OK 照界面原样留英文。", "source": "委托人 2026-01-02 的批注"}
+  }
+ ]
+}

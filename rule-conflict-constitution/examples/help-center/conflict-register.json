@@ -1,0 +1,97 @@
+{
+ "schema": "conflict-register/1",
+ "project": "帮助中心改版（示例）",
+ "updated": "2026-11-15",
+ "note": "示例：一个小团队给自家待办应用写的帮助中心。团队、产品、规范和成果都是为这个例子编的。",
+ "sources": [
+  {"id": "writing-guide-v2", "label": "写作规范第二版", "title": "内容组的帮助中心写作规范（第二版）", "file": "rules/writing-guide.md",
+   "version": "第二版", "date": "2026-10-20", "status": "in_force",
+   "sha256": "08e4f08ebbdc326d64f07406cb9be8b1d941eab6bf45a271de066e023008407a"},
+  {"id": "writing-guide-v1", "label": "写作规范第一版", "title": "内容组的帮助中心写作规范（第一版）", "file": "rules/archive/writing-guide-v1.md",
+   "version": "第一版", "date": "2026-09-01", "status": "superseded", "superseded_by": "writing-guide-v2",
+   "sha256": "a472d1f0c8d59d2056702fb6454e8057f9d360200c4d4cdf137171bdcf47663d"},
+  {"id": "support-replies", "label": "客服回复规范", "title": "客服组的客服回复规范", "file": "rules/support-replies.md",
+   "version": "2026-10-20", "date": "2026-10-20", "status": "in_force",
+   "sha256": "568be5f70eb504f3d9f899e0767b076cc1fa3cd929e40cc65aef0c526e63c0df"},
+  {"id": "glossary", "label": "术语表", "title": "产品组的术语表", "file": "rules/glossary.md",
+   "version": "2026-11-01", "date": "2026-11-01", "status": "in_force",
+   "sha256": "9f1d2f044009ca929faa2649390fe68944f2f9c465f21d75c885ff2dbdbbf3ba"},
+  {"id": "glossary-draft", "title": "产品组的术语表修订草案", "file": null,
+   "version": "草案", "date": "2026-11-10", "status": "pending",
+   "note": "委托人还没定，不据它改成果"},
+  {"id": "design-copy", "label": "界面文案规范", "title": "设计组的界面文案规范（在设计组的共享盘上，这里不留副本）",
+   "version": "3", "date": "2026-08-15", "status": "in_force", "external": true}
+ ],
+ "texts": {
+  "faq-account": "texts/faq-account.md",
+  "refund": "texts/refund.md",
+  "settings-notifications": "texts/settings-notifications.md",
+  "terms-excerpt": "texts/terms-excerpt.md",
+  "ui-strings": "texts/ui-strings.json"
+ },
+ "items": [
+  {
+   "id": "HC-01", "kind": "conflict", "title": "写作规范和客服回复规范对退款类文章的称呼说法不同",
+   "sides": [
+    {"source": "writing-guide-v2", "where": "第一节第 2 条", "quote": "退款类文章也用“你”", "strength": "must"},
+    {"source": "support-replies", "where": "第二节第 1 条", "quote": "退款类文章称呼用户用“您”", "strength": "must"},
+    {"text": "refund", "line": 3, "quote": "您的退款申请提交后"}
+   ],
+   "proposal": "两条都是必须，不是建议；两份规范同一天发，管的都是退款类文章，谁也不是谁的新版本，按裁决顺序定不了。请委托人选一个；选定后，由内容组或客服组把自己那一份改成一致的说法。",
+   "status": "open", "since": "2026-11-05",
+   "ask": "退款类文章称呼用户用“你”还是“您”？",
+   "meanwhile": "已采纳的退款说明照原样，不按任何一条改；新写的退款类文字尽量不直接称呼用户（比如写成“申请提交后，款项会在 7 个工作日内原路退回”），避不开的地方标出来交委托人定。"
+  },
+  {
+   "id": "HC-02", "kind": "mismatch", "title": "规范说账户类问题已经改完，已采纳的问答里还有“您”",
+   "sides": [
+    {"source": "writing-guide-v2", "where": "第三节", "quote": "账户类常见问题已经全部改成用“你”称呼"},
+    {"text": "faq-account", "line": 7, "quote": "您可以在「设置」里修改登录密码"}
+   ],
+   "status": "decided",
+   "resolution": "“已经全部改成”是描述，和已采纳的 faq-account 第 7 行对不上，不当成事实用；这一行照已采纳的样子留着，要不要改由委托人另定，差异已列给委托人。",
+   "decided_by": {"who": "ai", "when": "2026-11-05", "rule_applied": 2}
+  },
+  {
+   "id": "HC-03", "kind": "collision", "title": "术语表让“标签”专指彩色标记，已采纳的成果里“标签页”指界面上的分页",
+   "sides": [
+    {"source": "glossary", "where": "表格第 3 行", "quote": "“标签”专指任务上的彩色标记"},
+    {"text": "settings-notifications", "line": 3, "quote": "切到「通知」标签页"},
+    {"text": "ui-strings", "line": 3, "quote": "在上方的标签页之间切换"}
+   ],
+   "status": "decided",
+   "resolution": "“标签页”照旧指界面上的分页；单说“标签”时才指任务上的彩色标记。已采纳的成果不改。",
+   "decided_by": {"who": "principal", "when": "2026-11-03", "words": "“标签页”照旧，单说“标签”才指彩色标记。", "source": "委托人 2026-11-03 在评审会纪要里的回复"}
+  },
+  {
+   "id": "HC-04", "kind": "stale", "title": "写作规范开头说全部执行，第四节还标着待定",
+   "sides": [
+    {"source": "writing-guide-v2", "where": "开头", "quote": "本版各条自 2026 年 10 月 20 日起全部执行"},
+    {"source": "writing-guide-v2", "where": "第四节第 1 条", "quote": "（待定，先不执行）数字和单位之间空一格"},
+    {"source": "writing-guide-v1", "where": "开头", "quote": "第四节除外"}
+   ],
+   "status": "decided",
+   "resolution": "和第一版逐字比过：第四节的“（待定，先不执行）”第一版就有；开头从“第四节除外”改成“全部执行”，是第二版新改的话。按新改的这句读：第四节从 2026-10-20 起执行。已采纳的成果不自动回头改；要不要改，已列给委托人定。",
+   "decided_by": {"who": "ai", "when": "2026-11-05", "rule_applied": 1}
+  },
+  {
+   "id": "HC-05", "kind": "exception", "title": "服务条款摘录照法务原文用“您”",
+   "sides": [
+    {"source": "writing-guide-v2", "where": "第一节第 1 条", "quote": "帮助中心的文章称呼用户用“你”，不用“您”"},
+    {"text": "terms-excerpt", "line": 5, "quote": "您使用本应用即表示同意以下条款"}
+   ],
+   "status": "decided",
+   "resolution": "这一处是登记过的例外，以后核对称呼时不再报。",
+   "decided_by": {"who": "principal", "when": "2026-11-04", "words": "条款摘录照法务给的原文转载，称呼不改。", "source": "委托人 2026-11-04 在工单里的回复"}
+  },
+  {
+   "id": "HC-06", "kind": "conflict", "title": "按钮名加粗还是外加「」",
+   "sides": [
+    {"source": "writing-guide-v1", "where": "第二节第 1 条", "quote": "按钮名加粗"},
+    {"source": "design-copy", "where": "第 3 节", "quote": "按钮名外加「」"}
+   ],
+   "status": "closed",
+   "resolution": "写作规范第二版第二节已经改成外加「」，和设计组的规范一致，这一条不再成立。"
+  }
+ ]
+}

@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="496" viewBox="0 0 1200 496" fill="none" role="img" aria-labelledby="title description">
+  <title id="title">BJM 的主流程：Builder 产出，Judge 核对，Manager 决定</title>
+  <desc id="description">先明确交付和依据；Builder 交出成果和版本，写明假设和缺口；Judge 用原始要求、实际证据和当前成果作核对，没跑的检查不写通过；Manager 决定放行、重查、返修或停下：证据过期时只重查相关项，返修初稿后默认最多三次，用户另定的优先；最后由用户决定采不采纳，对外发送另要授权。复杂任务保存检查点，断了能接着做，只重查依赖变了的项。</desc>
+  <defs>
+    <style>
+      text { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", "Source Han Sans SC", "WenQuanYi Micro Hei", sans-serif; }
+      .ink { fill: #1B2B3D; }
+      .muted { fill: #5B6770; }
+      .teal { fill: #23766A; }
+      .copper { fill: #9A5530; }
+      .num { font-size: 13px; font-weight: 600; letter-spacing: 1.5px; }
+      .head { font-size: 18px; font-weight: 600; }
+      .small { font-size: 15px; }
+      .icon { stroke: #23766A; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+      .card { fill: #FFFEFB; stroke: #DAD5C8; }
+      .next { stroke: #A9B8B1; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+      .pill { font-size: 14px; font-weight: 600; }
+    </style>
+  </defs>
+
+  <rect x="1" y="1" width="1198" height="494" rx="18" fill="#F6F4EE" stroke="#E0DCD0"/>
+  <path d="M40 38H70" stroke="#23766A" stroke-width="3"/>
+  <text x="81" y="43" class="teal" font-size="13" letter-spacing="2.5">BUILDER · JUDGE · MANAGER</text>
+  <text x="40" y="83" class="ink" font-size="26" font-weight="600">Builder 产出，Judge 核对，Manager 决定</text>
+  <text x="1160" y="80" text-anchor="end" class="muted" font-size="15">采纳由用户决定。</text>
+
+  <!-- 01 明确交付和依据 -->
+  <g>
+    <rect x="40" y="112" width="200" height="240" rx="10" class="card"/>
+    <text x="58" y="139" class="teal num">01</text>
+    <g class="icon" transform="translate(58 157)">
+      <rect x="5" y="4" width="24" height="28" rx="3"/>
+      <path d="M12 1.500H22V7H12Z"/>
+      <path d="M10 15H24M10 21H24M10 27H18"/>
+    </g>
+    <text x="58" y="222" class="ink head">明确交付和依据</text>
+    <text x="58" y="249" class="muted small">要什么成果，以什么为准</text>
+    <text x="58" y="270" class="muted small">能改哪里，哪些要保留</text>
+  </g>
+  <path d="M246 232H258M254 228L258 232L254 236" class="next"/>
+
+  <!-- 02 Builder -->
+  <g>
+    <rect x="264" y="112" width="184" height="240" rx="10" class="card"/>
+    <text x="282" y="139" class="teal num">02</text>
+    <g class="icon" transform="translate(282 157)">
+      <path d="M2 32H32"/>
+      <rect x="4" y="18" width="12" height="14" rx="1.500"/>
+      <rect x="18" y="18" width="12" height="14" rx="1.500"/>
+      <rect x="11" y="4" width="12" height="14" rx="1.500"/>
+    </g>
+    <text x="282" y="222" class="ink head">Builder 产出</text>
+    <text x="282" y="249" class="muted small">交出成果和版本</text>
+    <text x="282" y="270" class="muted small">写明假设和缺口</text>
+  </g>
+  <path d="M454 232H466M462 228L466 232L462 236" class="next"/>
+
+  <!-- 03 Judge -->
+  <g>
+    <rect x="472" y="112" width="212" height="240" rx="10" class="card"/>
+    <text x="490" y="139" class="teal num">03</text>
+    <g class="icon" transform="translate(490 157)">
+      <circle cx="14" cy="14" r="10"/>
+      <path d="M21.500 21.500L31 31"/>
+      <path d="M9.500 14L13 17.500L19 10.500"/>
+    </g>
+    <text x="490" y="222" class="ink head">Judge 核对</text>
+    <text x="490" y="249" class="muted small">用原始要求、实际证据</text>
+    <text x="490" y="270" class="muted small">和当前成果作核对</text>
+    <text x="490" y="291" class="muted small">没跑的检查不写通过</text>
+  </g>
+  <path d="M690 232H702M698 228L702 232L698 236" class="next"/>
+
+  <!-- 04 Manager -->
+  <g>
+    <rect x="708" y="112" width="240" height="240" rx="10" class="card"/>
+    <text x="726" y="139" class="teal num">04</text>
+    <g class="icon" transform="translate(726 157)">
+      <path d="M2 17H14"/>
+      <path d="M14 17C20 17 20 6 30 6"/>
+      <path d="M14 17H30"/>
+      <path d="M14 17C20 17 20 28 30 28"/>
+      <path d="M26 2.500L30 6L26 9.500M26 13.500L30 17L26 20.500M26 24.500L30 28L26 31.500"/>
+    </g>
+    <text x="726" y="222" class="ink head">Manager 决定</text>
+    <rect x="726" y="237" width="46" height="20" rx="10" fill="#DDEFEA"/>
+    <text x="749" y="252" text-anchor="middle" class="pill" fill="#1F6E60">放行</text>
+    <text x="782" y="252" class="muted small">交付这一版</text>
+    <rect x="726" y="263" width="46" height="20" rx="10" fill="#E2E8F1"/>
+    <text x="749" y="278" text-anchor="middle" class="pill" fill="#2F4A6E">重查</text>
+    <text x="782" y="278" class="muted small">只重查证据过期的项</text>
+    <rect x="726" y="289" width="46" height="20" rx="10" fill="#F6E6DA"/>
+    <text x="749" y="304" text-anchor="middle" class="pill" fill="#9A5530">返修</text>
+    <text x="782" y="304" class="muted small">回到 Builder 修改</text>
+    <rect x="726" y="315" width="46" height="20" rx="10" fill="#E8E9EC"/>
+    <text x="749" y="330" text-anchor="middle" class="pill" fill="#4B5563">停下</text>
+    <text x="782" y="330" class="muted small">交出现有成果和缺口</text>
+  </g>
+  <path d="M954 232H966M962 228L966 232L962 236" class="next"/>
+
+  <!-- 05 用户决定 -->
+  <g>
+    <rect x="972" y="112" width="188" height="240" rx="10" class="card"/>
+    <text x="990" y="139" class="teal num">05</text>
+    <g class="icon" transform="translate(990 157)">
+      <circle cx="17" cy="10" r="6.500"/>
+      <path d="M5 31C5 23.500 10 19.500 17 19.500C24 19.500 29 23.500 29 31"/>
+    </g>
+    <text x="990" y="222" class="ink head">用户决定采不采纳</text>
+    <text x="990" y="249" class="muted small">审查通过不等于采纳</text>
+    <text x="990" y="270" class="muted small">对外发送另要授权</text>
+  </g>
+
+  <!-- 返修回到 Builder -->
+  <g stroke="#B9774C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M770 354V376Q770 384 762 384H364Q356 384 356 376V360"/>
+    <path d="M351 365L356 359L361 365"/>
+  </g>
+  <rect x="393" y="372" width="340" height="24" rx="12" fill="#F6F4EE"/>
+  <text x="563" y="389" text-anchor="middle" class="copper small">返修：初稿后默认最多 3 次，用户另定的优先</text>
+
+  <!-- 检查点 -->
+  <rect x="40" y="414" width="1120" height="50" rx="10" fill="#E5EFEB" stroke="#C7DCD4"/>
+  <g class="icon" transform="translate(60 427)">
+    <path d="M1 0H17V24L9 18L1 24Z"/>
+  </g>
+  <text x="90" y="444.500" class="ink" font-size="16" font-weight="600">检查点</text>
+  <text x="158" y="444.500" class="muted" font-size="15">记下版本、已做的检查、已用次数和下一步。断了能接着做：只重查依赖变了的项，仍然有效的证据照旧沿用。</text>
+</svg>

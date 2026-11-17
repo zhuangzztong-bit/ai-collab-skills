@@ -1,0 +1,27 @@
+{
+  "versions": {
+    "source": "source-v2",
+    "artifact": "format-v1",
+    "format-criteria": "criteria-v1"
+  },
+  "checks": [
+    {"id": "content-preserved", "kind": "review", "depends_on": ["source", "artifact"]},
+    {"id": "format-matches-request", "kind": "mechanical", "depends_on": ["artifact", "format-criteria"]}
+  ],
+  "evidence": {
+    "content-preserved": {
+      "result": "PASS",
+      "versions": {"source": "source-v1", "artifact": "format-v1"},
+      "reference": "illustrative review of source-v1",
+      "context_isolation": "shared"
+    },
+    "format-matches-request": {
+      "result": "PASS",
+      "versions": {"artifact": "format-v1", "format-criteria": "criteria-v1"},
+      "reference": "illustrative format inspection"
+    }
+  },
+  "revision_count": 1,
+  "max_revisions": 3,
+  "retry_count": 0
+}

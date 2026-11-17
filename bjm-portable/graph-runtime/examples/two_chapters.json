@@ -1,0 +1,39 @@
+{
+  "version": "two-chapters-v1",
+  "nodes": [
+    {
+      "id": "draft-a",
+      "kind": "task",
+      "deps": [],
+      "inputs": {"text": "第一章：巡查员将钥匙留在值班台。"},
+      "retry_safe": true
+    },
+    {
+      "id": "draft-b",
+      "kind": "task",
+      "deps": [],
+      "inputs": {"text": "第二章：天亮后，接班人到值班台取钥匙。"},
+      "retry_safe": true
+    },
+    {
+      "id": "review-a",
+      "kind": "task",
+      "deps": ["draft-a"],
+      "inputs": {"operation": "review"},
+      "retry_safe": true
+    },
+    {
+      "id": "review-b",
+      "kind": "task",
+      "deps": ["draft-b"],
+      "inputs": {"operation": "review"},
+      "retry_safe": true
+    },
+    {
+      "id": "approve",
+      "kind": "approval",
+      "deps": ["review-a", "review-b"],
+      "inputs": {}
+    }
+  ]
+}
